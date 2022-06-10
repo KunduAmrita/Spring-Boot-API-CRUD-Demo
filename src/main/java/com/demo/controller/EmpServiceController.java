@@ -25,28 +25,33 @@ public class EmpServiceController {
     @Autowired
     EmployeesService employeesService;
     
+    //Create new
     @PostMapping("/employees")
     public int saveEmployees(@RequestBody Employees employees){
         employeesService.saveOrUpdate(employees);
         return employees.getEmpId();
     }
-    
+       
+    //Update
     @PutMapping("/employees")
     public Employees update(@RequestBody Employees employees){
         employeesService.saveOrUpdate(employees);
         return employees;
     }
     
+    //List All Employees
     @GetMapping("/employee")
     public List<Employees> getAllEmployees(){
         return employeesService.getAllEmployees();    
     }
     
+    //Get detail of a specfic one
     @GetMapping("/employee/{empId}")
     public Employees getEmployees(@PathVariable("empId") int empId){
         return employeesService.getEmployeesById(empId);
     }
     
+    //Delete
     @DeleteMapping("/employee/{empId}")
     public void deleteEmployee(@PathVariable("empId") int empId){
         employeesService.delete(empId);

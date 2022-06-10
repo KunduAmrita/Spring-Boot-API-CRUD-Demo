@@ -25,7 +25,7 @@ public class Employees implements Serializable {
     @Column
     private String lastName;
     @Column
-    private Date birthDate;
+    private Date birthDate; //yyyy-mm-dd format
     @Column
     private String gender;
     @Column
